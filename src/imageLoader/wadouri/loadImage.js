@@ -2,6 +2,7 @@ import createImage from '../createImage.js';
 import parseImageId from './parseImageId.js';
 import dataSetCacheManager from './dataSetCacheManager.js';
 import loadFileRequest from './loadFileRequest.js';
+import loadBufferRequest from './loadBufferRequest.js';
 import getPixelData from './getPixelData.js';
 import { xhrRequest } from '../internal/index.js';
 
@@ -131,6 +132,8 @@ function getLoaderForScheme(scheme) {
     return xhrRequest;
   } else if (scheme === 'dicomfile') {
     return loadFileRequest;
+  } else if (scheme === 'dicombuffer') {
+    return loadBufferRequest;
   }
 }
 
